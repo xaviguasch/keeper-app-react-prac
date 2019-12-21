@@ -1,24 +1,26 @@
 import React from 'react'
 import Card from './Card'
+import Header from './Header'
+import Note from './Note'
+import Footer from './Footer'
 import contacts from '../contacts'
+import notes from '../notes'
 
 function App(props) {
     return (
         <div>
-            <h1 className='heading'>My Contacts</h1>
+            <Header />
 
-            {contacts.map(contact => {
+            {notes.map(note => {
                 return (
-                    <Card
-                        key={contact.id}
-                        id={contact.id}
-                        name={contact.name}
-                        img={contact.imgURL}
-                        tel={contact.phone}
-                        email={contact.email}
+                    <Note
+                        key={note.key}
+                        title={note.title}
+                        content={note.content}
                     />
                 )
             })}
+            <Footer />
         </div>
     )
 }
